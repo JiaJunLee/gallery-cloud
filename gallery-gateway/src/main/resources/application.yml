@@ -1,0 +1,9 @@
+server:
+  port: 5001
+eureka:
+  client:
+    service-url:
+      defaultZone: http://10.222.22.77:8761/eureka/,http://146.222.43.26:8888/eureka/
+spring:
+  application:
+    name: GALLERY-GATEWAY

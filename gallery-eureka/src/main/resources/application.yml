@@ -1,0 +1,11 @@
+server:
+  port: 8761
+eureka:
+  client:
+    service-url:
+      defaultZone: http://146.222.43.26:8888/eureka/
+  instance:
+    hostname: 10.222.22.77
+spring:
+  application:
+    name: GALLERY-EUREKA
