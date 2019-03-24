@@ -1,0 +1,18 @@
+spring:
+ application:
+   name: gallery-config-client
+ cloud:
+   config:
+      label: master
+      profile: dev #这里可以配多个
+#      uri: http://localhost:9990/
+      name:  gallery-config #这里可以配多个
+      discovery:
+        enabled: true
+        serviceId: gallery-config-server
+server:
+  port: 8999
+eureka:
+  client:
+    service-url:
+      defaultZone: http://10.222.22.77:8761/eureka/,http://146.222.43.26:8888/eureka/
