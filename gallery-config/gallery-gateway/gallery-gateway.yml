@@ -1,2 +1,19 @@
 server:
   port: 6200
+spring:
+  rabbitmq:
+     host: libu2-w10.corp.oocl.com
+     port: 5672
+     username: guest
+     password: guest
+zuul:
+  routes:
+    USER-SERVICE:
+      path: /user/**
+      service-id: GALLERY-USER-SERVICE
+    IMAGE-SERVICE:
+      path: /images/**
+      service-id: GALLERY-IMAGE-SERVICE
+    FILE-SERVICE:
+      path: /files/**
+      service-id: GALLERY-FILE-SERVICE
