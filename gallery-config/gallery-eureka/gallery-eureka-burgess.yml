@@ -1,5 +1,3 @@
-spring:
-  profiles: burgess
 eureka:
   instance:
     hostname: libu2-w10.corp.oocl.com

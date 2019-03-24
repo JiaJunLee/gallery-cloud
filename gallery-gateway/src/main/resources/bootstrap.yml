@@ -1,0 +1,7 @@
+spring:
+ application:
+   name: GALLERY-GATEWAY
+ cloud:
+   config:
+    uri: http://localhost:9990/
+    profile: burgess

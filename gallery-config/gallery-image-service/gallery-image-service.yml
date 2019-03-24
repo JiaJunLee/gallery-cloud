@@ -1,0 +1,8 @@
+server:
+  port: 6002
+management:
+  security:
+    enabled: false
+feign:
+  hystrix:
+    enabled: true

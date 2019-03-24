@@ -1,0 +1,4 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://liuju7-w10.corp.oocl.com:8761/eureka/,http://libu2-w10.corp.oocl.com:8761/eureka/
