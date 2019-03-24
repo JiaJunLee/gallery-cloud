@@ -4,4 +4,5 @@ eureka:
   instance:
     hostname: caike3-w10.corp.oocl.com
   client:
-    service-url: http://libu2-w10.corp.oocl.com:8761/eureka/,http://liuju7-w10.corp.oocl.com:8761/eureka/
+    service-url:
+      defaultZone: http://libu2-w10.corp.oocl.com:8761/eureka/,http://liuju7-w10.corp.oocl.com:8761/eureka/

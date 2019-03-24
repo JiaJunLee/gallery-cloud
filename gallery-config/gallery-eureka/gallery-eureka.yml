@@ -1,6 +1,9 @@
 spring:
-  application:
-    name: GALLERY-EUREKA
+  rabbitmq:
+     host: libu2-w10.corp.oocl.com
+     port: 5672
+     username: guest
+     password: guest
 server:
   port: 8761
 management:
