@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: gallery-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/cckevincyh/Spring-Cloud-Config-Test-Demo.git
+          searchPaths: respo
+          username:
+          password:
+      label: master
+server:
+  port: 9990
+eureka:
+  client:
+    service-url:
+      defaultZone: http://10.222.22.77:8761/eureka/,http://146.222.43.26:8888/eureka/

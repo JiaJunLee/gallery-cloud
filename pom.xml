@@ -18,6 +18,7 @@
         <module>gallery-hystrix-dashboard</module>
         <module>gallery-gateway</module>
         <module>gallery-file-service</module>
+        <module>gallery-config-client</module>
     </modules>
 
     <parent>
