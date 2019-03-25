@@ -1,0 +1,6 @@
+version '0.1'
+services:
+  gallery-config-server:
+    image: gallery-cloud/gallery-config-server
+    ports:
+      - "9990:9990"
