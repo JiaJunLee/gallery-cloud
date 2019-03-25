@@ -1,0 +1,9 @@
+server:
+  port: 56568
+spring:
+  rabbitmq:
+     host: libu2-w10.corp.oocl.com
+     port: 5672
+     username: guest
+     password: guest
+security.jwt.secret: otherpeopledontknowit

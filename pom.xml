@@ -19,6 +19,8 @@
         <module>gallery-gateway</module>
         <module>gallery-file-service</module>
         <module>gallery-config-server</module>
+        <module>gallery-security-common</module>
+        <module>gallery-auth-center</module>
     </modules>
 
     <parent>
