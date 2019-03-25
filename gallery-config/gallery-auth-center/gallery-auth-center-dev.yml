@@ -1,5 +1,5 @@
 server:
-  port: 56568
+  port: 8789
 spring:
   rabbitmq:
      host: libu2-w10.corp.oocl.com
