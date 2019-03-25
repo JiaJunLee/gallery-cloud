@@ -1,0 +1,8 @@
+spring:
+   data:
+     mongodb:
+       database: gallery-test
+       host: libu2-w10.corp.oocl.com
+       port: 27017
+  jackson:
+       time-zone: GMT+8

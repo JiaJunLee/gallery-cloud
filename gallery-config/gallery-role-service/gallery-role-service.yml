@@ -1,5 +1,5 @@
 server:
-  port: 6001
+  port: 6111
 spring:
   rabbitmq:
      host: libu2-w10.corp.oocl.com
