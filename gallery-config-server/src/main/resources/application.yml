@@ -9,4 +9,4 @@ spring:
         git:
           uri: https://github.com/JiaJunLee/gallery-cloud.git
           searchPaths: gallery-config/{application}
-          default-label: DEV-0.1
+          default-label: REL-0.1

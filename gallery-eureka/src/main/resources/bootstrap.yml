@@ -4,4 +4,4 @@ spring:
  cloud:
    config:
     uri: http://localhost:9990/
-    profile: dev
+    profile: prod
