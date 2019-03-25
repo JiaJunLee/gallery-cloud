@@ -1,4 +1,4 @@
-package com.oocl.ita.gallery.security.config;
+package com.oocl.ita.gallery.gateway.security.config;
 
 import com.oocl.ita.gallery.security.common.JwtAuthenticationConfig;
 import com.oocl.ita.gallery.security.common.JwtTokenAuthenticationFilter;

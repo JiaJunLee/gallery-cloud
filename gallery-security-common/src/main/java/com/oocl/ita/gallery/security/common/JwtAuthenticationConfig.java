@@ -17,7 +17,7 @@ public class JwtAuthenticationConfig {
     @Value("${security.jwt.expiration:#{24*60*60}}")
     private int expiration; // default 24 hours
 
-    @Value("${security.jwt.secret:otherpeopledontknowit}")
+    @Value("${security.jwt.secret}")
     private String secret;
 
 
