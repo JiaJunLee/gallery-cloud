@@ -9,4 +9,4 @@ spring:
         git:
           uri: https://github.com/JiaJunLee/gallery-cloud.git
           searchPaths: gallery-config/{application}
-          default-label: security-1.0
+          default-label: security-2.0

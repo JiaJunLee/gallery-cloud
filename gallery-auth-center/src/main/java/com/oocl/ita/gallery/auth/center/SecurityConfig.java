@@ -9,6 +9,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.servlet.http.HttpServletResponse;
@@ -26,9 +28,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("admin").password("admin").roles("ADMIN", "USER").and()
-                .withUser("user").password("user").roles("USER");
+        auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
+        auth.eraseCredentials(false);
     }
 
     @Override
@@ -49,6 +50,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                     .antMatchers(config.getUrl()).permitAll()
                     .anyRequest().authenticated();
+    }
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() { //密码加密
+        return new BCryptPasswordEncoder(4);
+    }
+
+    @Bean
+    public UserDetailsService userDetailsService() {    //用户登录实现
+        return new GalleryUserDetailsService();
     }
 }
 
