@@ -14,7 +14,7 @@ public class SecurityUser extends User implements UserDetails {
 
     public SecurityUser(User user){
         this.setUsername(user.getUsername());
-        this.setPassword(PASSWORD_ENCODER.encode(user.getPassword()));
+        this.setPassword(user.getPassword());
         this.setRealName(user.getRealName());
         this.setType(user.getType());
         this.setRoles(user.getRoles());

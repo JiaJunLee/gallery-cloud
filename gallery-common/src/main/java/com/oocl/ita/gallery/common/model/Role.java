@@ -7,36 +7,14 @@ import java.util.List;
 @Document(collection = "role")
 public class Role extends BaseDocument {
 
-    /**
-     * 角色名，用于权限校验
-     */
     private String name;
-
-    /**
-     * 角色中文名，用于显示
-     */
     private String nickname;
-
-    /**
-     * 角色描述信息
-     */
     private String description;
-
-    /**
-     * 角色可进行的操作列表
-     */
     private List<SimplePermission> permissions;
 
-    /**
-     * Spring Security 4.0以上版本角色都默认以'ROLE_'开头
-     * @param name
-     */
+
     public void setName(String name) {
-        if (!name.contains("ROLE_")) {
-            this.name = "ROLE_" + name;
-        } else {
-            this.name = name;
-        }
+        this.name = name;
     }
 
     public String getName() {
