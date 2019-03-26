@@ -1,19 +1,10 @@
 package com.oocl.ita.gallery.common.model;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-public class User extends BaseDocument implements UserDetails {
-
-    private static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder(4);
+public class User extends BaseDocument{
 
     /**
      * 用户登录名
@@ -31,9 +22,7 @@ public class User extends BaseDocument implements UserDetails {
     @JsonIgnore
     private String password;
 
-
     private String type;
-
 
     /**
      * 用户在系统中的角色列表，将根据角色对用户操作权限进行限制
@@ -53,7 +42,7 @@ public class User extends BaseDocument implements UserDetails {
     }
 
     public void setPassword(String password) {
-        this.password = PASSWORD_ENCODER.encode(password);
+        this.password = password;
     }
 
     public List<String> getRoles() {
@@ -72,38 +61,11 @@ public class User extends BaseDocument implements UserDetails {
         this.type = type;
     }
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-    }
-
-    @Override
-    public String getPassword() {
-        return this.password;
-    }
-
-    @Override
     public String getUsername() {
-        return this.username;
+        return username;
     }
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
+    public String getPassword() {
+        return password;
     }
 }

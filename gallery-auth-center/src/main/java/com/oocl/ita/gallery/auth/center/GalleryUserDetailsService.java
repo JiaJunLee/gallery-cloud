@@ -33,6 +33,7 @@ public class GalleryUserDetailsService implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException(String.format("No user found with username: %s", username));
         }
+        SecurityUser securityUser = new SecurityUser(user);
 
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
         List<String> roles = user.getRoles();
@@ -47,6 +48,6 @@ public class GalleryUserDetailsService implements UserDetailsService {
                 }
             }
         }
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), user.isEnabled(), user.isAccountNonExpired(), user.isCredentialsNonExpired(), user.isAccountNonLocked(), authorities);
+        return new org.springframework.security.core.userdetails.User(securityUser.getUsername(), securityUser.getPassword(), securityUser.isEnabled(), securityUser.isAccountNonExpired(), securityUser.isCredentialsNonExpired(), securityUser.isAccountNonLocked(), authorities);
     }
 }
