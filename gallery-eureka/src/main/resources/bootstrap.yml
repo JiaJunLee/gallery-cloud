@@ -4,4 +4,4 @@ spring:
  cloud:
    config:
     uri: http://gallery-config-server:9990/
-    profile: prod
+    profile: dev
