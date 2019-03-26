@@ -10,8 +10,6 @@ import java.util.Collection;
 
 public class SecurityUser extends User implements UserDetails {
 
-    private static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder(4);
-
     public SecurityUser(User user){
         this.setUsername(user.getUsername());
         this.setPassword(user.getPassword());

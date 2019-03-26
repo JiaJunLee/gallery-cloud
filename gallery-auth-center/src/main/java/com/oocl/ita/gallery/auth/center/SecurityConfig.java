@@ -28,8 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
-        auth.eraseCredentials(false);
+        auth.userDetailsService(userDetailsService());
     }
 
     @Override
@@ -52,10 +51,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .anyRequest().authenticated();
     }
 
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() { //密码加密
-        return new BCryptPasswordEncoder(4);
-    }
 
     @Bean
     public UserDetailsService userDetailsService() {    //用户登录实现
