@@ -3,5 +3,5 @@ spring:
    name: GALLERY-TURBINE
  cloud:
    config:
-    uri: http://localhost:9990/
+    uri: http://10.222.47.161:9990/
     profile: burgess
