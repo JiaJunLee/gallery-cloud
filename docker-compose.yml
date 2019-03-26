@@ -4,5 +4,7 @@ services:
     image: gallery-cloud/gallery-config-server
   gallery-eureka:
     image: gallery-cloud/gallery-eureka
+      links:
+        - gallery-config-server
       ports:
-      - "8761:8761"
+        - "8761:8761"
