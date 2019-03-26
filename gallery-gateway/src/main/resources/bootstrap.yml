@@ -4,4 +4,4 @@ spring:
  cloud:
    config:
     uri: http://10.222.47.161:9990/
-    profile: dev
+    profile: prod
