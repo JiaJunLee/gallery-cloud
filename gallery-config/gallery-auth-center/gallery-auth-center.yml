@@ -1,14 +1,14 @@
 spring:
-   data:
-     mongodb:
-       database: gallery-test
-       host: libu2-w10.corp.oocl.com
-       port: 27017
    rabbitmq:
         host: libu2-w10.corp.oocl.com
         port: 5672
         username: guest
         password: guest
-  jackson:
+   data:
+       mongodb:
+          database: gallery-test
+          host: libu2-w10.corp.oocl.com
+          port: 27017
+   jackson:
        time-zone: GMT+8
 security.jwt.secret: otherpeopledontknowit
