@@ -2,8 +2,6 @@ version: '0.1'
 services:
   gallery-config-server:
     image: gallery-cloud/gallery-config-server
-    ports:
-      - "9990:9990"
   gallery-eureka:
     image: gallery-cloud/gallery-eureka
       ports:
