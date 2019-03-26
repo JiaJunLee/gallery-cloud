@@ -1,9 +1,12 @@
 package com.oocl.ita.gallery.common.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Document(collection = "user")
 public class User extends BaseDocument{
 
     /**

@@ -3,9 +3,7 @@
     "username":"admin",
     "realName":"超超超级管理员",
     "password":"$2a$04$petEXpgcLKfdLN4TYFxK0u8ryAzmZDHLASWLX/XXm8hgQar1C892W",
-    "number":"admin",
     "type":"system",
-    "activated":true,
     "roles":["ROLE_ADMINISTRATOR"]
   }
 ]
