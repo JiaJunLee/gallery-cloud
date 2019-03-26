@@ -6,4 +6,3 @@ spring:
      port: 5672
      username: guest
      password: guest
-security.jwt.secret: otherpeopledontknowit

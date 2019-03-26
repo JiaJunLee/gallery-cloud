@@ -6,3 +6,4 @@ spring:
        port: 27017
   jackson:
        time-zone: GMT+8
+security.jwt.secret: otherpeopledontknowit
