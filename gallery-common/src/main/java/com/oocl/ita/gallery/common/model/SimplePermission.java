@@ -4,32 +4,16 @@ import java.util.Map;
 
 public class SimplePermission {
 
-    /**
-     * 资源id
-     */
-    private String resourceId;
-
-    /**
-     * 资源名
-     */
+    private String resource;
     private String resourceName;
-
-    /**
-     * 权限列表
-     */
     private Map<String, String> privileges;
 
-    /**
-     * 是否被遗弃
-     */
-    private boolean abandon = false;
-
-    public String getResourceId() {
-        return resourceId;
+    public String getResource() {
+        return resource;
     }
 
-    public void setResourceId(String resourceId) {
-        this.resourceId = resourceId;
+    public void setResource(String resource) {
+        this.resource = resource;
     }
 
     public String getResourceName() {
@@ -46,13 +30,5 @@ public class SimplePermission {
 
     public void setPrivileges(Map<String, String> privileges) {
         this.privileges = privileges;
-    }
-
-    public boolean isAbandon() {
-        return abandon;
-    }
-
-    public void setAbandon(boolean abandon) {
-        this.abandon = abandon;
     }
 }

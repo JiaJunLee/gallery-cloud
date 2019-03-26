@@ -44,7 +44,7 @@ public class GalleryUserDetailsService implements UserDetailsService {
             }
             for (SimplePermission permission : role.getPermissions()) {
                 for (String privilege : permission.getPrivileges().keySet()) {
-                    authorities.add(new SimpleGrantedAuthority(String.format("%s-%s", permission.getResourceId(), privilege)));
+                    authorities.add(new SimpleGrantedAuthority(String.format("%s-%s", permission.getResource(), privilege)));
                 }
             }
         }
