@@ -2,8 +2,10 @@ version: '0.1'
 services:
   gallery-config-server:
     image: gallery-cloud/gallery-config-server
+      hostname: gallery-config-server
   gallery-eureka:
     image: gallery-cloud/gallery-eureka
+      hostname: gallery-eureka
       links:
         - gallery-config-server
       ports:
