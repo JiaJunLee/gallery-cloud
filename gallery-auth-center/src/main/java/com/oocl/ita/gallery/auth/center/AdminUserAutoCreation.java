@@ -42,9 +42,9 @@ class AdminUserAutoCreation implements CommandLineRunner {
 
             //导入初始的系统超级管理员角色
             Type roleTokenType = new TypeToken<ArrayList<Role>>(){}.getType();
-            ArrayList<Role> roles = new GsonBuilder().create().fromJson(new InputStreamReader(roleInputStream, StandardCharsets.UTF_8), roleTokenType);
+            ArrayList<Role> roles = new GsonBuilder().create().fromJson(new InputStreamReader(roleInputStream, StandardCharsets.UTF_8), roleTokenType);;
             for (Role role: roles) {
-                if (roleService.findByRoleName(role.getName()) == null) {
+                if (roleService.findByRoleName(role.getName()).getBody() == null) {
                     roleService.createRole(role);
                 }
             }
