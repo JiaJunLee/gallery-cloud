@@ -54,7 +54,7 @@ public class JwtUsernamePasswordAuthenticationFilter extends AbstractAuthenticat
                 .setExpiration(Date.from(now.plusSeconds(config.getExpiration())))
                 .signWith(SignatureAlgorithm.HS256, config.getSecret().getBytes())
                 .compact();
-//        rsp.addHeader(config.getCookie(), config.getPrefix() + " " + token);
+
         Cookie cookie = new Cookie(config.getCookie(), config.getPrefix() + "#" + token);
         cookie.setHttpOnly(true);
         cookie.setPath("/");

@@ -41,10 +41,10 @@ public class ImageController {
     @Autowired
     private UserServiceClient userServiceClient;
 
-    @GetMapping
-    public ResponseEntity<User> test() {
-        return this.userServiceClient.getUserEntity();
-    }
+//    @GetMapping
+//    public ResponseEntity<User> test() {
+//        return this.userServiceClient.getUserEntity();
+//    }
 
 
     @GetMapping("/{image_id}")
