@@ -25,15 +25,9 @@ public class FileController {
 
     @PostMapping
     ResponseEntity<ImageFile> save(@RequestParam("file") MultipartFile file) throws IOException {
-        return new ResponseEntity<ImageFile>(fileService.save(constructFile(file)), HttpStatus.CREATED);
+        return new ResponseEntity<ImageFile>(fileService.saveFile(file), HttpStatus.CREATED);
     }
 
-    private ImageFile constructFile(MultipartFile file) throws IOException {
-        return new ImageFile(System.currentTimeMillis() + file.getOriginalFilename(),
-                file.getContentType(),
-                Long.toString(file.getSize()),
-                Base64Utils.encodeToString(file.getBytes())
-        );
-    }
+
 
 }
