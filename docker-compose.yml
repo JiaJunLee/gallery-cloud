@@ -12,7 +12,7 @@ services:
       - gallery-eureka
       - gallery-user-service
 #      - gallery-image-service
-#      - gallery-file-service
+      - gallery-file-service
     ports:
       - "6200:6200"
   gallery-hystrix-dashboard:
@@ -34,13 +34,13 @@ services:
 #    hostname: gallery-image-service
 #    ports:
 #      - "6002:6002"
-#  gallery-file-service:
-#    image: gallery-cloud/gallery-file-service:0.1
-#    links:
-#      - gallery-eureka
-#    hostname: gallery-file-service
-#    ports:
-#      - "6003:6003"
+  gallery-file-service:
+    image: gallery-cloud/gallery-file-service:0.1
+    links:
+      - gallery-eureka
+    hostname: gallery-file-service
+    ports:
+      - "6003:6003"
 #  gallery-turbine:
 #    image: gallery-cloud/gallery-turbine
 #      hostname: gallery-turbine
