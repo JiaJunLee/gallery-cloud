@@ -4,16 +4,15 @@ services:
     image: gallery-cloud/gallery-eureka:0.1
     hostname: gallery-eureka
     ports:
-    - "8761:8761"
+      - "8761:8761"
   gallery-gateway:
     image: gallery-cloud/gallery-gateway:0.1
     hostname: gallery-gateway
     links:
       - gallery-eureka
-      - gallery-user-service-1
-      - gallery-user-service-2
-      - gallery-image-service
-      - gallery-file-service
+      - gallery-user-service
+#      - gallery-image-service
+#      - gallery-file-service
     ports:
       - "6200:6200"
   gallery-hystrix-dashboard:
@@ -23,30 +22,25 @@ services:
       - gallery-eureka
     ports:
       - "8762:8762"
-  gallery-user-service-1:
+  gallery-user-service:
     image: gallery-cloud/gallery-user-service:0.1
     links:
       - gallery-eureka
-    hostname: gallery-user-service-1
-  gallery-user-service-2:
-    image: gallery-cloud/gallery-user-service:0.1
-    links:
-    - gallery-eureka
-    hostname: gallery-user-service-2
-  gallery-image-service:
-    image: gallery-cloud/gallery-image-service:0.1
-    links:
-      - gallery-eureka
-    hostname: gallery-image-service
-    ports:
-      - "6002:6002"
-  gallery-file-service:
-    image: gallery-cloud/gallery-file-service:0.1
-    links:
-      - gallery-eureka
-    hostname: gallery-file-service
-    ports:
-      - "6003:6003"
+    hostname: gallery-user-service
+#  gallery-image-service:
+#    image: gallery-cloud/gallery-image-service:0.1
+#    links:
+#      - gallery-eureka
+#    hostname: gallery-image-service
+#    ports:
+#      - "6002:6002"
+#  gallery-file-service:
+#    image: gallery-cloud/gallery-file-service:0.1
+#    links:
+#      - gallery-eureka
+#    hostname: gallery-file-service
+#    ports:
+#      - "6003:6003"
 #  gallery-turbine:
 #    image: gallery-cloud/gallery-turbine
 #      hostname: gallery-turbine
