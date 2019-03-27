@@ -3,5 +3,5 @@ spring:
    name: GALLERY-ROLE-SERVICE
  cloud:
    config:
-    uri: http://localhost:9990/
-    profile: dev
+    uri: http://10.222.47.161:9990/
+    profile: prod
