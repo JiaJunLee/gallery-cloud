@@ -1,5 +1,7 @@
 package com.oocl.ita.gallery.common.model;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.io.Serializable;
@@ -9,11 +11,11 @@ public abstract class BaseService<T extends BaseDocument, ID extends Serializabl
 
     public abstract PagingAndSortingRepository<T, ID> getRepository();
 
-    boolean isExists(ID id) {
+    public boolean isExists(ID id) {
         return getRepository().exists(id);
     }
 
-    T findById(ID id) {
+    public T findById(ID id) {
         return getRepository().findOne(id);
     }
 
@@ -46,6 +48,10 @@ public abstract class BaseService<T extends BaseDocument, ID extends Serializabl
 
     public Iterable<T> findAll() {
         return getRepository().findAll();
+    }
+
+    public Page<T> findAll(Pageable pageable) {
+        return getRepository().findAll(pageable);
     }
 
 }
