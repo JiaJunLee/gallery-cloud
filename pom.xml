@@ -21,7 +21,7 @@
         <module>gallery-config-server</module>
         <module>gallery-security-common</module>
         <module>gallery-auth-center</module>
-        <module>gallert-role-service</module>
+        <module>gallery-role-service</module>
     </modules>
 
     <parent>
