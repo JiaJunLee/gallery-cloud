@@ -52,6 +52,9 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
 
     private String getCookieToken(HttpServletRequest req) {
         String token = null;
+        if(req.getCookies() == null){
+            return null;
+        }
         for(Cookie cookie : req.getCookies()){
             if(config.getCookie().equals(cookie.getName())){
                 token = cookie.getValue();
