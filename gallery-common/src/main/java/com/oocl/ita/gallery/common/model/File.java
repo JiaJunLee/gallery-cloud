@@ -1,4 +1,4 @@
-package com.oocl.ita.gallery.file.service.file;
+package com.oocl.ita.gallery.common.model;
 
 
 import org.springframework.data.mongodb.core.mapping.Document;

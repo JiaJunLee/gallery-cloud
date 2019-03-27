@@ -15,11 +15,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Authenticate requests with header 'Authorization: Bearer jwt-token'.
- *
- * @author shuaicj 2017/10/18
- */
 public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtAuthenticationConfig config;

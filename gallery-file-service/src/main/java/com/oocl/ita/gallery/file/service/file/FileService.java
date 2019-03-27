@@ -1,10 +1,11 @@
 package com.oocl.ita.gallery.file.service.file;
 
-import com.oocl.ita.gallery.common.service.BaseService;
+import com.oocl.ita.gallery.common.model.BaseService;
+import com.oocl.ita.gallery.common.model.File;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,10 +19,9 @@ public class FileService extends BaseService<File, String> {
     @Autowired
     private FileRepository fileRepository;
 
+
     @Override
-    protected MongoRepository<File, String> getRepository() {
+    public PagingAndSortingRepository<File, String> getRepository() {
         return this.fileRepository;
     }
-
-
 }
