@@ -14,11 +14,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class FileService extends BaseService<ImageFile, String> {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(FileService.class);
-
     @Autowired
     private FileRepository fileRepository;
-
 
     @Override
     public PagingAndSortingRepository<ImageFile, String> getRepository() {

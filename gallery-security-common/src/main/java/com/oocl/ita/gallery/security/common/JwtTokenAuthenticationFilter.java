@@ -28,8 +28,8 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse rsp, FilterChain filterChain)
             throws ServletException, IOException {
         String token = getCookieToken(req);
-        if (token != null && token.startsWith(config.getPrefix() + " ")) {
-            token = token.replace(config.getPrefix() + " ", "");
+        if (token != null && token.startsWith(config.getPrefix() + "#")) {
+            token = token.replace(config.getPrefix() + "#", "");
             try {
                 Claims claims = Jwts.parser()
                         .setSigningKey(config.getSecret().getBytes())
@@ -52,6 +52,9 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
 
     private String getCookieToken(HttpServletRequest req) {
         String token = null;
+        if(req.getCookies() == null){
+            return null;
+        }
         for(Cookie cookie : req.getCookies()){
             if(config.getCookie().equals(cookie.getName())){
                 token = cookie.getValue();

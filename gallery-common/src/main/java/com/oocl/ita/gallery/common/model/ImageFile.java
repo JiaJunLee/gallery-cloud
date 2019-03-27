@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 /**
  * Created by Justin Liu on 3/26/2019.
  */
-@Document
+@Document(collection = "files")
 public class ImageFile extends BaseDocument {
 
     public ImageFile(String fileName, String fileType, String fileSize, String fileContent) {
