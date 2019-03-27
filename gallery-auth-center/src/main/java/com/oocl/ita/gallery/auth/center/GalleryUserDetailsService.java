@@ -1,8 +1,6 @@
 package com.oocl.ita.gallery.auth.center;
 
-import com.oocl.ita.gallery.auth.center.feign.RoleServiceClient;
 import com.oocl.ita.gallery.auth.center.feign.UserServiceClient;
-import com.oocl.ita.gallery.common.model.Role;
 import com.oocl.ita.gallery.common.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
