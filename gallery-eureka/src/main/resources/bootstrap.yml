@@ -3,5 +3,5 @@ spring:
    name: GALLERY-EUREKA
  cloud:
    config:
-    uri: http://localhost:9990/
+    uri: http://gallery-config-server:9990/
     profile: dev
