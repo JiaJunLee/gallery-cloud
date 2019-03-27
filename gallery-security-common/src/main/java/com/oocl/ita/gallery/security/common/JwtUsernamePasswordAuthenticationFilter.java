@@ -58,6 +58,7 @@ public class JwtUsernamePasswordAuthenticationFilter extends AbstractAuthenticat
         Cookie cookie = new Cookie(config.getCookie(), config.getPrefix() + "#" + token);
         cookie.setHttpOnly(true);
         cookie.setPath("/");
+        cookie.setDomain("caike3-w10");
         cookie.setMaxAge(config.getExpiration());
         rsp.addCookie(cookie);
     }

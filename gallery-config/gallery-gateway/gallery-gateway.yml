@@ -17,9 +17,4 @@ zuul:
     FILE-SERVICE:
       path: /files/**
       service-id: GALLERY-FILE-SERVICE
-    AUTH-CENTER:
-          path: /login/**
-          service-id: GALLERY-AUTH-CENTER
-#          sensitiveHeaders: Cookie,Set-Cookie
-          stripPrefix: false
 security.jwt.secret: otherpeopledontknowit
