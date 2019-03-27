@@ -1,7 +1,0 @@
-spring:
- application:
-   name: GALLERY-ROLE-SERVICE
- cloud:
-   config:
-    uri: http://localhost:9990/
-    profile: dev
