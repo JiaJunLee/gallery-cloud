@@ -20,6 +20,6 @@ zuul:
     AUTH-CENTER:
           path: /login/**
           service-id: GALLERY-AUTH-CENTER
-          sensitiveHeaders: Cookie,Set-Cookie
-          stripPrefix: false
+#          sensitiveHeaders: Cookie,Set-Cookie
+#          stripPrefix: false
 security.jwt.secret: otherpeopledontknowit
