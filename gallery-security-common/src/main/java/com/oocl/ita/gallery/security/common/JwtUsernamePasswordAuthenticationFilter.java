@@ -12,6 +12,7 @@ import org.springframework.security.web.authentication.AbstractAuthenticationPro
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import io.jsonwebtoken.SignatureAlgorithm;
 import javax.servlet.FilterChain;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -53,7 +54,12 @@ public class JwtUsernamePasswordAuthenticationFilter extends AbstractAuthenticat
                 .setExpiration(Date.from(now.plusSeconds(config.getExpiration())))
                 .signWith(SignatureAlgorithm.HS256, config.getSecret().getBytes())
                 .compact();
-        rsp.addHeader(config.getHeader(), config.getPrefix() + " " + token);
+//        rsp.addHeader(config.getCookie(), config.getPrefix() + " " + token);
+        Cookie cookie = new Cookie(config.getCookie(), config.getPrefix() + " " + token);
+        cookie.setHttpOnly(true);
+        cookie.setPath("/");
+        cookie.setMaxAge(config.getExpiration());
+        rsp.addCookie(cookie);
     }
 
 }

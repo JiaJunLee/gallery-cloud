@@ -8,8 +8,8 @@ public class JwtAuthenticationConfig {
     @Value("${security.jwt.url:/login}")
     private String url;
 
-    @Value("${security.jwt.header:Authorization}")
-    private String header;
+    @Value("${security.jwt.cookie:Authorization}")
+    private String cookie;
 
     @Value("${security.jwt.prefix:Bearer}")
     private String prefix;
@@ -29,12 +29,12 @@ public class JwtAuthenticationConfig {
         this.url = url;
     }
 
-    public String getHeader() {
-        return header;
+    public String getCookie() {
+        return cookie;
     }
 
-    public void setHeader(String header) {
-        this.header = header;
+    public void setCookie(String cookie) {
+        this.cookie = cookie;
     }
 
     public String getPrefix() {
@@ -65,7 +65,7 @@ public class JwtAuthenticationConfig {
     public String toString() {
         return "JwtAuthenticationConfig{" +
                 "url='" + url + '\'' +
-                ", header='" + header + '\'' +
+                ", cookie='" + cookie + '\'' +
                 ", prefix='" + prefix + '\'' +
                 ", expiration=" + expiration +
                 ", secret='" + secret + '\'' +

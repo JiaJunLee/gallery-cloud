@@ -9,6 +9,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -26,7 +27,7 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse rsp, FilterChain filterChain)
             throws ServletException, IOException {
-        String token = req.getHeader(config.getHeader());
+        String token = getCookieToken(req);
         if (token != null && token.startsWith(config.getPrefix() + " ")) {
             token = token.replace(config.getPrefix() + " ", "");
             try {
@@ -47,5 +48,15 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
             }
         }
         filterChain.doFilter(req, rsp);
+    }
+
+    private String getCookieToken(HttpServletRequest req) {
+        String token = null;
+        for(Cookie cookie : req.getCookies()){
+            if(config.getCookie().equals(cookie.getName())){
+                token = cookie.getValue();
+            }
+        }
+        return token;
     }
 }
