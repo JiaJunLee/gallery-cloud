@@ -2,18 +2,14 @@ package com.oocl.ita.gallery.image.service.image;
 
 import com.oocl.ita.gallery.common.model.Image;
 import com.oocl.ita.gallery.common.model.ImageFile;
-import com.oocl.ita.gallery.common.model.ImageType;
-import com.oocl.ita.gallery.common.model.User;
 import com.oocl.ita.gallery.image.service.feign.FileServiceClient;
-import com.oocl.ita.gallery.image.service.feign.ImageTypeServiceClient;
-import com.oocl.ita.gallery.image.service.feign.UserServiceClient;
+import com.oocl.ita.gallery.image.service.imagetype.ImageTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.util.Base64Utils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -27,8 +23,7 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Controller
-@RequestMapping("/images")
+@RestController
 public class ImageController {
 
     @Autowired
@@ -36,15 +31,7 @@ public class ImageController {
     @Autowired
     private FileServiceClient fileServiceClient;
     @Autowired
-    private ImageTypeServiceClient imageTypeServiceClient;
-
-    @Autowired
-    private UserServiceClient userServiceClient;
-
-//    @GetMapping
-//    public ResponseEntity<User> test() {
-//        return this.userServiceClient.getUserEntity();
-//    }
+    private ImageTypeService imageTypeService;
 
 
     @GetMapping("/{image_id}")
@@ -93,7 +80,7 @@ public class ImageController {
             image.setImageHeight(bufferedImage.getHeight());
         }
         if (image != null && image.getImageType() != null && !StringUtils.isEmpty(image.getImageType().getTypeName())) {
-            image.setImageType(imageTypeServiceClient.findByTypeName(image.getImageType().getTypeName()));
+            image.setImageType(imageTypeService.findByTypeName(image.getImageType().getTypeName()));
         }
         return new ResponseEntity<Image>(imageService.save(image), HttpStatus.CREATED);
     }
@@ -104,7 +91,7 @@ public class ImageController {
             return new ResponseEntity<Image>(HttpStatus.NOT_FOUND);
         }
         if (image != null && image.getImageType() != null && !StringUtils.isEmpty(image.getImageType().getTypeName())) {
-            image.setImageType(imageTypeServiceClient.findByTypeName(image.getImageType().getTypeName()));
+            image.setImageType(imageTypeService.findByTypeName(image.getImageType().getTypeName()));
         }
         return new ResponseEntity<Image>(imageService.save(image), HttpStatus.RESET_CONTENT);
     }

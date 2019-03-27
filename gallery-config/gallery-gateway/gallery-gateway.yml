@@ -7,20 +7,20 @@ spring:
      username: guest
      password: guest
 zuul:
-  routes:
-    USER-SERVICE:
-      path: /user/**
-      service-id: GALLERY-USER-SERVICE
-    IMAGE-SERVICE:
-      path: /images/**
-      service-id: GALLERY-IMAGE-SERVICE
-    FILE-SERVICE:
-      path: /files/**
-      service-id: GALLERY-FILE-SERVICE
-    AUTH-CENTER:
-          path: /login/**
-          service-id: GALLERY-AUTH-CENTER
-          sensitiveHeaders:
-          stripPrefix: false
-          customerSensitiveHeaders: true
+ routes:
+   USER-SERVICE:
+     path: /user/**
+     service-id: GALLERY-USER-SERVICE
+   IMAGE-SERVICE:
+     path: /images/**
+     service-id: GALLERY-IMAGE-SERVICE
+   FILE-SERVICE:
+     path: /files/**
+     service-id: GALLERY-FILE-SERVICE
+   AUTH-CENTER:
+     path: /login/**
+     service-id: GALLERY-AUTH-CENTER
+     sensitive-headers:
+     stripPrefix: false
+     customerSensitiveHeaders: true
 security.jwt.secret: otherpeopledontknowit

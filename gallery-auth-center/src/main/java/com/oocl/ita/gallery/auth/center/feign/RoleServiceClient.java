@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @FeignClient(name = "GALLERY-ROLE-SERVICE", fallbackFactory = RoleServiceClientFallbackFactory.class)
 public interface RoleServiceClient {
-    @RequestMapping(value = "/roles/{roleName}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{roleName}", method = RequestMethod.GET)
     ResponseEntity<Role> findByRoleName(@PathVariable("roleName") String roleName);
 
-    @RequestMapping(value = "/roles", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     ResponseEntity<Role> createRole(Role role);
 }

@@ -17,7 +17,7 @@ public class ImageTypeService extends BaseService<ImageType, String> {
     return this.imageTypeRepository;
   }
 
-  ImageType findByTypeName(String typeName) {
+  public ImageType findByTypeName(String typeName) {
     return this.imageTypeRepository.findByTypeName(typeName);
   }
 }
