@@ -5,11 +5,3 @@ spring:
    config:
     uri: http://localhost:9990/
     profile: dev
-zuul:
-  routes:
-    AUTH-CENTER:
-          path: /login/**
-          service-id: GALLERY-AUTH-CENTER
-          sensitiveHeaders:
-          stripPrefix: false
-          customerSensitiveHeaders: true
