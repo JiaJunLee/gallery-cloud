@@ -1,0 +1,6 @@
+[ {
+    "name":"ROLE_ADMINISTRATOR",
+    "nickname":"管理员",
+    "description":"系统超级管理员，不允许用户更改"
+  }
+]

@@ -3,5 +3,12 @@ spring:
    name: GALLERY-FILE-SERVICE
  cloud:
    config:
-    uri: http://10.222.47.161:9990/
-    profile: prod
+    uri: http://localhost:9990/
+    profile: dev
+ data:
+    mongodb:
+      database: gallery
+      host: 10.222.22.77
+      port: 27017
+ jackson:
+     timeZone: GMT+8

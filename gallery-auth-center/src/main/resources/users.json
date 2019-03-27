@@ -1,0 +1,9 @@
+[
+  {
+    "username":"admin",
+    "realName":"超超超级管理员",
+    "password":"admin",
+    "type":"system",
+    "roles":["ROLE_ADMINISTRATOR"]
+  }
+]

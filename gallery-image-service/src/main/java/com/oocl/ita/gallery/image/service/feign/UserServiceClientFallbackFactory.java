@@ -19,7 +19,7 @@ public class UserServiceClientFallbackFactory implements FallbackFactory<UserSer
       @Override
       public ResponseEntity<User> getUserEntity() {
         LOGGER.error("UserServiceClient - getUserEntity service is unavailable", throwable);
-        return new ResponseEntity<>(new User("EX", "EX"), HttpStatus.OK);
+        return new ResponseEntity<>(new User(), HttpStatus.OK);
       }
     };
   }
