@@ -8,9 +8,9 @@ import org.springframework.data.mongodb.core.mapping.Field;
  * Created by Justin Liu on 3/26/2019.
  */
 @Document
-public class File extends BaseDocument {
+public class ImageFile extends BaseDocument {
 
-    public File(String fileName, String fileType, String fileSize, String fileContent) {
+    public ImageFile(String fileName, String fileType, String fileSize, String fileContent) {
         this.fileName = fileName;
         this.fileType = fileType;
         this.fileSize = fileSize;

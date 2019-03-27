@@ -1,6 +1,6 @@
 package com.oocl.ita.gallery.file.service.file;
 
-import com.oocl.ita.gallery.common.model.File;
+import com.oocl.ita.gallery.common.model.ImageFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,12 +21,12 @@ public class FileController {
     private FileService fileService;
 
     @PostMapping
-    ResponseEntity<File> save(@RequestParam("file") MultipartFile file) throws IOException {
-        return new ResponseEntity<File>(fileService.save(constructFile(file)), HttpStatus.CREATED);
+    ResponseEntity<ImageFile> save(@RequestParam("file") MultipartFile file) throws IOException {
+        return new ResponseEntity<ImageFile>(fileService.save(constructFile(file)), HttpStatus.CREATED);
     }
 
-    private File constructFile(MultipartFile file) throws IOException {
-        return new File(System.currentTimeMillis() + file.getOriginalFilename(),
+    private ImageFile constructFile(MultipartFile file) throws IOException {
+        return new ImageFile(System.currentTimeMillis() + file.getOriginalFilename(),
                 file.getContentType(),
                 Long.toString(file.getSize()),
                 Base64Utils.encodeToString(file.getBytes())
