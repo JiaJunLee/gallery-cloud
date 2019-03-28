@@ -76,11 +76,14 @@ public class ImageController {
             if (bufferedImage == null) {
                 throw new RuntimeException("no image！");
             }
+            image.setUploadUser(null);
             image.setImageWidth(bufferedImage.getWidth());
             image.setImageHeight(bufferedImage.getHeight());
         }
         if (image != null && image.getImageType() != null && !StringUtils.isEmpty(image.getImageType().getTypeName())) {
             image.setImageType(imageTypeService.findByTypeName(image.getImageType().getTypeName()));
+        }else if(image != null){
+            image.setImageType(null);
         }
         return new ResponseEntity<Image>(imageService.save(image), HttpStatus.CREATED);
     }

@@ -54,7 +54,7 @@ public class FirstFilter extends ZuulFilter {
         response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
         response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setHeader("Access-Control-Allow-Headers", "authorization, content-type");
-        response.setHeader("Access-Control-Allow-Methods", "POST,GET");
+        response.setHeader("Access-Control-Allow-Methods", "POST,GET,PUT,DELETE");
         response.setHeader("Access-Control-Expose-Headers", "X-forwared-port, X-forwarded-host");
         response.setHeader("Vary", "Origin,Access-Control-Request-Method,Access-Control-Request-Headers");
         //不再路由
