@@ -6,10 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Base64Utils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -29,6 +26,9 @@ public class FileController {
         return new ResponseEntity<ImageFile>(fileService.saveFile(file), HttpStatus.CREATED);
     }
 
-
+    @RequestMapping(value = "/{file_id}", method = RequestMethod.GET)
+    ResponseEntity<ImageFile> findById(@PathVariable("file_id") String id) {
+        return new ResponseEntity<ImageFile>(fileService.findById(id), HttpStatus.OK);
+    }
 
 }

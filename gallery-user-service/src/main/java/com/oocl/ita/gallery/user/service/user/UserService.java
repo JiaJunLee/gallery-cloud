@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -29,6 +31,7 @@ public class UserService extends BaseService<User, String> {
 
     public User createUser(User user) {
         if (userRepository.findByUsername(user.getUsername()) == null) {
+            user.setRoles(Arrays.asList("ROLE_USER"));
             this.save(user);
         } else {
             throw new RuntimeException("error");

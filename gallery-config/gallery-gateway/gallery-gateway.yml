@@ -2,10 +2,10 @@ server:
   port: 6200
 spring:
   rabbitmq:
-     host: libu2-w10.corp.oocl.com
+     host: zha-mvp-007-w7
      port: 5672
-     username: guest
-     password: guest
+     username: gallery
+     password: 123456
 zuul:
  routes:
    USER-SERVICE:

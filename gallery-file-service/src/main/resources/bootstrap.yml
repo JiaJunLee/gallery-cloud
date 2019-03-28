@@ -8,7 +8,7 @@ spring:
  data:
     mongodb:
       database: gallery
-      host: 10.222.22.77
+      host: zha-mvp-007-w7
       port: 27017
  jackson:
      timeZone: GMT+8

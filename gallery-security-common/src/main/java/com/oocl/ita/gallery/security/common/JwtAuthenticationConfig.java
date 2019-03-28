@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 
 public class JwtAuthenticationConfig {
 
-    @Value("${security.jwt.url:/login}")
+    @Value("${security.jwt.url:/user/login}")
     private String url;
 
     @Value("${security.jwt.cookie:Authorization}")
