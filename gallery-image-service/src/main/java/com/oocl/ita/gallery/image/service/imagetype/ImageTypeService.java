@@ -13,7 +13,7 @@ public class ImageTypeService extends BaseService<ImageType, String> {
   ImageTypeRepository imageTypeRepository;
 
   @Override
-  public PagingAndSortingRepository getRepository() {
+  public PagingAndSortingRepository<ImageType, String> getRepository() {
     return this.imageTypeRepository;
   }
 
