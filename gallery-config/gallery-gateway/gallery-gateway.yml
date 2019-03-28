@@ -6,6 +6,16 @@ spring:
      port: 5672
      username: gallery
      password: 123456
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+ribbon:
+  ConnectTimeout: 6000
+  ReadTimeout: 60000
 zuul:
  routes:
    USER-SERVICE:

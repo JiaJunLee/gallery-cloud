@@ -37,7 +37,7 @@ public class RuntimeLoggerConfiguration {
     LOGGER.info("Initializing Runtime Logger Component");
   }
 
-  @Around("execution(* com.oocl.ita..*.*(..))")
+  @Around("execution(* com.oocl.ita..*Controller.*(..))")
   Object logRuntimeInformation(ProceedingJoinPoint joinPoint) throws Throwable {
     Object result = null;
     Method method = Arrays.stream(joinPoint.getSignature().getDeclaringType().getDeclaredMethods()).filter(m -> m.getName().equals(joinPoint.getSignature().getName())).findFirst().get();
