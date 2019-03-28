@@ -17,7 +17,8 @@ import java.io.IOException;
 /**
  * Created by Justin Liu on 3/26/2019.
  */
-@RestController
+@Controller
+@RequestMapping
 public class FileController {
 
     @Autowired
