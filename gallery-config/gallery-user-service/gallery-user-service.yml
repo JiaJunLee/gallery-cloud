@@ -6,6 +6,11 @@ spring:
      port: 5672
      username: gallery
      password: 123456
+  kafka:
+    bootstrap-servers: http://ZHA-MVP-007-W7.corp.oocl.com:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
   data:
      mongodb:
         database: gallery
