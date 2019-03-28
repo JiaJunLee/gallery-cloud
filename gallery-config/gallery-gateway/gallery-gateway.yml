@@ -17,6 +17,9 @@ zuul:
    FILE-SERVICE:
      path: /files/**
      service-id: GALLERY-FILE-SERVICE
+   ROLE-SERVICE:
+      path: /roles/**
+      service-id: GALLERY-ROLE-SERVICE
    AUTH-CENTER:
      path: /login/**
      service-id: GALLERY-AUTH-CENTER
