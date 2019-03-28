@@ -54,17 +54,21 @@ public class RuntimeLoggerConfiguration {
         runtimeInformation.setMethod(method.getName());
         runtimeInformation.setRequestUrl(request != null ? request.getRequestURL().toString() : "NONE");
         runtimeInformation.setRequestMethod(request != null ? request.getMethod() : "NONE");
-        runtimeInformation.setCookies(request != null ? String.join("\r\n", Arrays.stream(request.getCookies()).reduce(new ArrayList<String>(), (cookieList, cookie) -> {
-          cookieList.add(MessageFormat.format("Name: {0}, Value: {1}, Domain: {2}, Path: {3}, Secure: {4}, Max Age: {5}, Version: {6}",
-                  cookie.getName(),
-                  cookie.getValue(),
-                  cookie.getDomain(),
-                  cookie.getPath(),
-                  cookie.getSecure(),
-                  cookie.getMaxAge(),
-                  cookie.getVersion()));
-          return cookieList;
-        }, (a, b) -> new ArrayList<>())): "NONE");
+        if (request != null && request.getCookies() != null) {
+          runtimeInformation.setCookies(String.join("\r\n", Arrays.stream(request.getCookies()).reduce(new ArrayList<String>(), (cookieList, cookie) -> {
+            cookieList.add(MessageFormat.format("Name: {0}, Value: {1}, Domain: {2}, Path: {3}, Secure: {4}, Max Age: {5}, Version: {6}",
+                    cookie.getName(),
+                    cookie.getValue(),
+                    cookie.getDomain(),
+                    cookie.getPath(),
+                    cookie.getSecure(),
+                    cookie.getMaxAge(),
+                    cookie.getVersion()));
+            return cookieList;
+          }, (a, b) -> new ArrayList<>())));
+        } else {
+          runtimeInformation.setCookies("NONE");
+        }
       }
       result = joinPoint.proceed();
     } catch (Throwable t) {
