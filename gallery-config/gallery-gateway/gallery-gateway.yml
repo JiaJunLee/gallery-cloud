@@ -2,7 +2,7 @@ server:
   port: 6200
 spring:
   rabbitmq:
-     host: zha-mvp-007-w7
+     host: zha-mvp-007-w7.corp.oocl.com
      port: 5672
      username: gallery
      password: 123456
