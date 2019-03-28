@@ -14,9 +14,14 @@ hystrix:
           thread:
             timeoutInMilliseconds: 70000
 ribbon:
-  ConnectTimeout: 6000
-  ReadTimeout: 60000
+  ConnectTimeout: 5000
+  ReadTimeout: 6000
+  MaxAutoRetries: 1
+  MaxAutoRetriesNextServer: 1
+  OkToRetryOnAllOperations: true
+
 zuul:
+ retryable: true
  routes:
    USER-SERVICE:
      path: /user/**
