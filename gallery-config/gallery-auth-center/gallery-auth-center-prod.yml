@@ -1,0 +1,6 @@
+server:
+  port: 8789
+eureka:
+  client:
+    service-url:
+      defaultZone: http://gallery-eureka:8761/eureka/
