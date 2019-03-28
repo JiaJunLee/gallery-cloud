@@ -9,52 +9,41 @@ services:
     image: gallery-cloud/gallery-gateway:0.1
     hostname: gallery-gateway
     links:
-      - gallery-eureka
-      - gallery-user-service
-      - gallery-image-service
-      - gallery-file-service
-      - gallery-auth-center
+      - "gallery-eureka"
     ports:
       - "6200:6200"
   gallery-hystrix-dashboard:
     image: gallery-cloud/gallery-hystrix-dashboard:0.1
     hostname: gallery-hystrix-dashboard
     links:
-      - gallery-eureka
+      - "gallery-eureka"
     ports:
       - "8762:8762"
-  gallery-auth-center:
-    image: gallery-cloud/gallery-auth-center:0.1
-    links:
-      - gallery-eureka
-      - gallery-user-service
-      - gallery-role-service
-    hostname: gallery-auth-center
   gallery-user-service:
     image: gallery-cloud/gallery-user-service:0.1
     links:
-      - gallery-eureka
+      - "gallery-eureka"
     hostname: gallery-user-service
   gallery-image-service:
     image: gallery-cloud/gallery-image-service:0.1
     links:
-      - gallery-eureka
-      - gallery-file-service
+      - "gallery-eureka"
+      - "gallery-file-service"
     hostname: gallery-image-service
   gallery-file-service:
     image: gallery-cloud/gallery-file-service:0.1
     links:
-      - gallery-eureka
+      - "gallery-eureka"
     hostname: gallery-file-service
   gallery-role-service:
     image: gallery-cloud/gallery-role-service:0.1
     links:
-      - gallery-eureka
+      - "gallery-eureka"
     hostname: gallery-role-service
-
-
-#  gallery-turbine:
-#    image: gallery-cloud/gallery-turbine
-#      hostname: gallery-turbine
-#      ports:
-#      - "8761:8761"
+  gallery-auth-center:
+    image: gallery-cloud/gallery-auth-center:0.1
+    links:
+      - "gallery-eureka"
+      - "gallery-user-service"
+      - "gallery-role-service"
+    hostname: gallery-auth-center

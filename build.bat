@@ -1,1 +1,2 @@
-mvn clean install -pl gallery-eureka,gallery-auth-center,gallery-role-service,gallery-image-service,gallery-file-service,gallery-gateway,gallery-hystrix-dashboard,gallery-user-service docker:build
+call mvn clean install -pl gallery-common
+call mvn clean install -pl gallery-eureka,gallery-auth-center,gallery-role-service,gallery-image-service,gallery-file-service,gallery-gateway,gallery-hystrix-dashboard,gallery-user-service docker:build
