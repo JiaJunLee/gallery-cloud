@@ -1,5 +1,7 @@
 package com.oocl.ita.gallery.image.service.imagetype;
 
+import com.oocl.ita.gallery.common.log.annotation.LogRuntimeLogger;
+import com.oocl.ita.gallery.common.log.annotation.LogTag;
 import com.oocl.ita.gallery.common.model.ImageType;
 
 import java.util.List;
@@ -18,17 +20,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/types")
+@LogRuntimeLogger(topic = "GALLERY-IMAGE-TOPIC")
 public class ImageTypeController {
 
     @Autowired
     ImageTypeService imageTypeService;
 
     @PostMapping
+    @LogTag("IMAGE-TYPE-SAVE")
     public ResponseEntity<ImageType> save(@RequestBody ImageType imageType) {
         return new ResponseEntity<ImageType>(imageTypeService.save(imageType), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{delete_Id}")
+    @LogTag("IMAGE-TYPE-DELETE-BY-ID")
     ResponseEntity<ImageType> deleteById(@PathVariable("delete_Id") String imageId) {
         ImageType imageType = imageTypeService.findById(imageId);
         if (imageType == null) {
@@ -39,6 +44,7 @@ public class ImageTypeController {
     }
 
     @PutMapping
+    @LogTag("IMAGE-TYPE-UPDATE")
     ResponseEntity<ImageType> update(@RequestBody ImageType imageType) {
         if (!imageTypeService.isExists((imageType == null ? null : imageType.getId()))) {
             return new ResponseEntity<ImageType>(HttpStatus.NOT_FOUND);
@@ -47,6 +53,7 @@ public class ImageTypeController {
     }
 
     @GetMapping("/{image_id}")
+    @LogTag("IMAGE-TYPE-GET")
     ResponseEntity<ImageType> get(@PathVariable("image_id") String imageId) {
         ImageType imageType = imageTypeService.findById(imageId);
         if (imageType == null) {
@@ -56,6 +63,7 @@ public class ImageTypeController {
     }
 
     @GetMapping
+    @LogTag("IMAGE-TYPE-GET-ALL")
     ResponseEntity<List<ImageType>> getAll() {
         return new ResponseEntity<List<ImageType>>((List<ImageType>) imageTypeService.findAll(), HttpStatus.OK);
     }

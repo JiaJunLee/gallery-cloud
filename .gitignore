@@ -8,7 +8,6 @@
 bin/
 
 # log
-log/
 transaction-logs/
 
 ### IntelliJ IDEA ###

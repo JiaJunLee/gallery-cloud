@@ -1,5 +1,7 @@
 package com.oocl.ita.gallery.image.service.image;
 
+import com.oocl.ita.gallery.common.log.annotation.LogRuntimeLogger;
+import com.oocl.ita.gallery.common.log.annotation.LogTag;
 import com.oocl.ita.gallery.common.model.Image;
 import com.oocl.ita.gallery.common.model.ImageFile;
 import com.oocl.ita.gallery.image.service.feign.FileServiceClient;
@@ -24,6 +26,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 @RestController
+@LogRuntimeLogger(topic = "GALLERY-IMAGE-TOPIC")
 public class ImageController {
 
     @Autowired
@@ -35,6 +38,7 @@ public class ImageController {
 
 
     @GetMapping("/{image_id}")
+    @LogTag("IMAGE-GET")
     public ResponseEntity<Image> get(@PathVariable("image_id") String imageId) {
         Image image = imageService.findById(imageId);
         if (image == null) {
@@ -45,6 +49,7 @@ public class ImageController {
     }
 
     @GetMapping
+    @LogTag("IMAGE-GET")
     public ResponseEntity<Map> get(@RequestParam(value = "pageIndex", defaultValue = "0") int pageIndex, @RequestParam(value = "pageSize", defaultValue = "30") int pageSize, String tags) {
         Pageable pageable = new PageRequest(pageIndex, pageSize);
         Page<Image> imagePage;
@@ -62,6 +67,7 @@ public class ImageController {
     }
 
     @PostMapping
+    @LogTag("IMAGE-SAVE")
     public ResponseEntity<Image> save(@RequestBody Image image) {
         if (image != null && image.getImageFile() != null && !StringUtils.isEmpty(image.getImageFile().getId())) {
             ImageFile imageFile = fileServiceClient.findById(image.getImageFile().getId());
@@ -89,6 +95,7 @@ public class ImageController {
     }
 
     @PutMapping
+    @LogTag("IMAGE-UPDATE")
     public ResponseEntity<Image> update(@RequestBody Image image) {
         if (!imageService.isExists((image == null ? null : image.getId()))) {
             return new ResponseEntity<Image>(HttpStatus.NOT_FOUND);
@@ -100,6 +107,7 @@ public class ImageController {
     }
 
     @DeleteMapping("/{image_id}")
+    @LogTag("IMAGE-DELETE")
     public ResponseEntity<Image> delete(@PathVariable("image_id") String imageId) {
         Image image = imageService.findById(imageId);
         if (image == null) {
