@@ -1,5 +1,5 @@
 spring:
-  rabbitmq:
+   rabbitmq:
      host: zha-mvp-007-w7
      port: 5672
      username: gallery
