@@ -1,8 +1,6 @@
 package com.oocl.ita.gallery.user.service.user;
 
-import com.oocl.ita.gallery.common.model.BaseService;
 import com.oocl.ita.gallery.common.model.User;
-import org.assertj.core.util.Lists;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +13,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
 
 public class UserServiceTest {
 
