@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name = "GALLERY-USER-SERVICE", fallbackFactory = UserServiceClientFallbackFactory.class)
 public interface UserServiceClient {
 
-  @RequestMapping(value = "/users/{username}", method = RequestMethod.GET)
+  @RequestMapping(value = "/{username}", method = RequestMethod.GET)
   ResponseEntity<User> findByUserName(@PathVariable("username") String username);
 
-  @RequestMapping(value = "/users", method = RequestMethod.POST)
+  @RequestMapping(method = RequestMethod.POST)
   ResponseEntity<User> createUser(User user);
 }
 

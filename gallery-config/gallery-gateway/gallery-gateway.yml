@@ -2,25 +2,28 @@ server:
   port: 6200
 spring:
   rabbitmq:
-     host: libu2-w10.corp.oocl.com
+     host: zha-mvp-007-w7
      port: 5672
-     username: guest
-     password: guest
+     username: gallery
+     password: 123456
 zuul:
-  routes:
-    USER-SERVICE:
-      path: /user/**
-      service-id: GALLERY-USER-SERVICE
-    IMAGE-SERVICE:
-      path: /images/**
-      service-id: GALLERY-IMAGE-SERVICE
-    FILE-SERVICE:
-      path: /files/**
-      service-id: GALLERY-FILE-SERVICE
-    AUTH-CENTER:
-          path: /login/**
-          service-id: GALLERY-AUTH-CENTER
-          sensitiveHeaders:
-          stripPrefix: false
-          customerSensitiveHeaders: true
+ routes:
+   USER-SERVICE:
+     path: /user/**
+     service-id: GALLERY-USER-SERVICE
+   IMAGE-SERVICE:
+     path: /images/**
+     service-id: GALLERY-IMAGE-SERVICE
+   FILE-SERVICE:
+     path: /files/**
+     service-id: GALLERY-FILE-SERVICE
+   ROLE-SERVICE:
+      path: /roles/**
+      service-id: GALLERY-ROLE-SERVICE
+   AUTH-CENTER:
+     path: /login/**
+     service-id: GALLERY-AUTH-CENTER
+     sensitive-headers:
+     stripPrefix: false
+     customerSensitiveHeaders: true
 security.jwt.secret: otherpeopledontknowit

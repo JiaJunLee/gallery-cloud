@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @FeignClient(name = "GALLERY-FILE-SERVICE", fallbackFactory = FileServiceClientFallbackFactory.class)
 public interface FileServiceClient {
-    @RequestMapping(value = "/files/{file_id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{file_id}", method = RequestMethod.GET)
     ImageFile findById(@PathVariable("file_id") String id);
 }

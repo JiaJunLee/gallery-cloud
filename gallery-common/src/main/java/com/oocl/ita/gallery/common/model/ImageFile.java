@@ -10,6 +10,9 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Document(collection = "files")
 public class ImageFile extends BaseDocument {
 
+    public ImageFile(){
+
+    }
     public ImageFile(String fileName, String fileType, String fileSize, String fileContent) {
         this.fileName = fileName;
         this.fileType = fileType;

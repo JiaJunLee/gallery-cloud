@@ -2,14 +2,14 @@ server:
   port: 6111
 spring:
   rabbitmq:
-     host: libu2-w10.corp.oocl.com
+     host: zha-mvp-007-w7
      port: 5672
-     username: guest
-     password: guest
+     username: gallery
+     password: 123456
   data:
      mongodb:
-        database: gallery-test
-        host: libu2-w10.corp.oocl.com
+        database: gallery
+        host: zha-mvp-007-w7
         port: 27017
   jackson:
      time-zone: GMT+8
