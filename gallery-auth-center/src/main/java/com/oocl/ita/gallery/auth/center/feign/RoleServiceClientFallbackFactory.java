@@ -10,16 +10,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class RoleServiceClientFallbackFactory implements FallbackFactory<RoleServiceClient> {
     private static final Logger LOGGER = LoggerFactory.getLogger(RoleServiceClientFallbackFactory.class);
+
     @Override
     public RoleServiceClient create(Throwable throwable) {
         return new RoleServiceClient() {
             @Override
             public ResponseEntity<Role> findByRoleName(String roleName) {
+                RoleServiceClientFallbackFactory.LOGGER.info("fallback in findByRoleName; reason was:", throwable);
                 return null;
             }
 
             @Override
             public ResponseEntity<Role> createRole(Role role) {
+                RoleServiceClientFallbackFactory.LOGGER.info("fallback in createRole; reason was:", throwable);
                 return null;
             }
         };

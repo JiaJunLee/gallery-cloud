@@ -11,21 +11,24 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserServiceClientFallbackFactory implements FallbackFactory<UserServiceClient> {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceClientFallbackFactory.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceClientFallbackFactory.class);
 
-  @Override
-  public UserServiceClient create(Throwable throwable) {
-    return new UserServiceClient() {
-      @Override
-      public ResponseEntity<User> findByUserName(String username) {
-        return null;
-      }
+    @Override
+    public UserServiceClient create(Throwable throwable) {
 
-      @Override
-      public ResponseEntity<User> createUser(User user) {
-        return null;
-      }
-    };
-  }
+        return new UserServiceClient() {
+            @Override
+            public ResponseEntity<User> findByUserName(String username) {
+                UserServiceClientFallbackFactory.LOGGER.info("fallback in findByUserName; reason was:", throwable);
+                return null;
+            }
+
+            @Override
+            public ResponseEntity<User> createUser(User user) {
+                UserServiceClientFallbackFactory.LOGGER.info("fallback in createUser; reason was:", throwable);
+                return null;
+            }
+        };
+    }
 
 }
